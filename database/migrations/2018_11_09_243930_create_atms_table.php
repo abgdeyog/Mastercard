@@ -17,10 +17,11 @@ class CreateAtmsTable extends Migration
             $table->increments('id');
             $table->double("lat");
             $table->double("lng");
+            $table->integer('bank_id')->unsigned();
             $table->foreign('bank_id')
                 ->references('id')->on('banks')
                 ->onDelete('cascade');
-            $table->int("operations");
+            $table->integer("operations");
             $table->string("working_hours");
         });
     }
